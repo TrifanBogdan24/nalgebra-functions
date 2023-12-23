@@ -9,7 +9,6 @@ impl Polynomial {
     // integral -> the approximated value of the integral
     pub fn composed_trapezoidal(&self, a: f64, b: f64, n: usize) -> f64 {
 
-
         let h: f64 = (b - a) / (n as f64);
         let mut s: f64 = 0.0;
         
