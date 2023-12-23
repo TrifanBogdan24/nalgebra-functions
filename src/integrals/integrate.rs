@@ -1,6 +1,5 @@
 // uses code from polynom.rs
-extern crate nalgebra_functions;
-use nalgebra_functions::integrals::Polynomial;
+use crate::polynom::pol::Polynomial;
 
 impl Polynomial {
     // self     -> the polynomial function coefficients
