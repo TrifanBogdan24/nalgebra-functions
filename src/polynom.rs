@@ -1,6 +1,3 @@
-// the file is named 'pol.rs' to void colission with
-// the parent module named 'polynom'
-
 pub struct Polynomial {
     pub coeff: Vec<f64>,
 }

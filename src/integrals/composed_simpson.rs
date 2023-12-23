@@ -1,6 +1,6 @@
 // uses code from polynom.rs
 // use crate::pol::Polynomial;// e mai ok cu super?
-use crate::polynom::pol::Polynomial;
+use crate::polynom::Polynomial;
 
 impl Polynomial {
     // self     -> the polynomial function coefficients

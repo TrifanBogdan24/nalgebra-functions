@@ -10,15 +10,13 @@ pub mod integrals {
     pub mod composed_trapezoidal;    
 }
 
-pub mod polynom {
-    pub mod pol;
-}
+pub mod polynom;
 
 #[cfg(test)]
 mod tests {
     use crate::add;
 
-    use crate::polynom::pol::Polynomial as Polynomial;
+    use crate::polynom::Polynomial; // Polynomial is a stuct
 
     use approx::abs_diff_eq;        // since I compute integrals,
                                     // I am interested in comparing only the first 5 decimals
