@@ -1,1 +1,3 @@
-pub mod polynom;
+mod pol;
+
+pub use pol::Polynomial;

@@ -1,3 +1,7 @@
+mod polynom;
+
+use polynom::Polynomial;
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -8,10 +12,6 @@ pub mod integrals {
     pub mod composed_simpson;
     pub mod simple_trapezoidal;
     pub mod composed_trapezoidal;    
-}
-
-pub mod polynom {
-
 }
 
 #[cfg(test)]
