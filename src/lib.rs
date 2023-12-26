@@ -14,9 +14,10 @@ pub mod polynom;
 
 #[cfg(test)]
 mod tests {
-    use crate::{add, polynom};      // polynom! is a macro
+    use crate::add;      // polynom! is a macro
 
     use crate::polynom::Polynomial; // Polynomial is a struct
+    use crate::polynom;             // the macro
 
     use approx::abs_diff_eq;        // since I compute integrals,
                                     // I am interested in comparing only the first 5 decimals

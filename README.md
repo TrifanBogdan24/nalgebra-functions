@@ -17,7 +17,8 @@ The data structure `Polynomial` has the following implemented methods:
 Check the code example from below:
 
 ```rust
-use crate::polynom::Polynomial
+use crate::polynom::Polynomial;    // the struct
+use crate::polynom;                // the macro
 
 fn main() {
     // how to create a polynomial instance? 
