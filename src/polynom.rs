@@ -12,10 +12,19 @@ impl Polynomial {
     }
 }
 
+#[macro_export]
+macro_rules! polynom {
+    // The macro for a Polynomial copy constructor
+    ($($c:expr),*) => {{
+        Polynomial {
+            coeff: vec![$($c),*],
+        }
+    }};
+}
+
 impl Polynomial {
     pub fn printfunc(&self) {
         let n: usize = self.coeff.len();
-
         for i in 0..=(n - 1) {
 
             if self.coeff[i] == 0.0 {

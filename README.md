@@ -3,7 +3,8 @@
 ## Library for calculating the approximated value of the polynomial function's integral
 
 The data structure `Polynomial` has the following implemented methods:
-- `new`             
+- `new`
+- macro `polynom!()`
 - `to_string`
 - `printfunc`
 - `eval`
@@ -24,6 +25,7 @@ fn main() {
     };
 
     let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
+    let pol3 = 
     let polint = pol2.integrate();
     
     print!("f(x) = ");

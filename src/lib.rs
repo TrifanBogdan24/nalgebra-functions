@@ -14,9 +14,9 @@ pub mod polynom;
 
 #[cfg(test)]
 mod tests {
-    use crate::add;
+    use crate::{add, polynom};      // polynom! is a macro
 
-    use crate::polynom::Polynomial; // Polynomial is a stuct
+    use crate::polynom::Polynomial; // Polynomial is a struct
 
     use approx::abs_diff_eq;        // since I compute integrals,
                                     // I am interested in comparing only the first 5 decimals
@@ -28,12 +28,33 @@ mod tests {
         assert_eq!(result, 4);
     }
 
+    #[test]
+    fn test_polynomial_new_constructor() {
+        let pol1: Polynomial = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
+
+        if (pol1.coeff[0] != 1.0 || pol1.coeff[1] != 2.0 || pol1.coeff[2] != 3.0
+            || pol1.coeff[3] != 4.0 || pol1.coeff[4] != 5.0) {
+            assert!(false);
+        }
+        assert!(true);
+    }
+
+    #[test]
+    fn test_polynomial_macro() {
+        let pol1: Polynomial = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
+
+        if (pol1.coeff[0] != 1.0 || pol1.coeff[1] != 2.0 || pol1.coeff[2] != 3.0
+            || pol1.coeff[3] != 4.0 || pol1.coeff[4] != 5.0) {
+            assert!(false);
+        }
+        assert!(true);
+    }
 
     #[test]
     fn test_feval() {
     
         let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
-
+        let _po3 = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
         // 5 fixed decimals
         let precision = 1e-5;
 
@@ -45,6 +66,8 @@ mod tests {
     #[test]
     fn test_actual_integral() {
         let result = add(2, 2);
+        let _po3 = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
+
         assert_eq!(result, 4);
 
         let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
@@ -66,6 +89,7 @@ mod tests {
     fn test_simple_simpson() {
     
         let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
+        let _po3 = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
 
         let a: f64 = 1.0;       // lower limit of the interval
         let b: f64 = 10.0;      // upper limit of the interval
@@ -83,6 +107,8 @@ mod tests {
     fn test_composed_simpson() {
 
         let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
+        let _po3 = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
+
 
         let a: f64 = 1.0;       // lower limit of the interval
         let b: f64 = 10.0;      // upper limit of the interval
@@ -100,7 +126,7 @@ mod tests {
 
     #[test]
     fn test_simple_trapezoidal() {
-        let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
+        let pol2: Polynomial = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
 
         let a: f64 = 1.0;       // lower limit of the interval
         let b: f64 = 10.0;      // upper limit of the interval
