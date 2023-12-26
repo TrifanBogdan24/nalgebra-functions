@@ -4,7 +4,7 @@
 
 The data structure `Polynomial` has the following implemented methods:
 - `new`
-- macro `polynom!()`
+- `polynom!()` macro
 - `to_string`
 - `printfunc`
 - `eval`
@@ -20,12 +20,19 @@ Check the code example from below:
 use crate::polynom::Polynomial
 
 fn main() {
+    // how to create a polynomial instance? 
+    
+    // method 1 : manually
     let pol: Polynomial = Polynomial {
         coeff: vec![1.0, 2.0, 3.0, 4.0, 5.0],
     };
 
+    // method 2 : copy constructor
     let pol2 = Polynomial::new(&[1.0, 2.0, 3.0, 4.0, 5.0]);
-    let pol3 = 
+    
+    // method 3: macro
+    let pol3 = polynom!(1.0, 2.0, 3.0, 4.0, 5.0);
+    
     let polint = pol2.integrate();
     
     print!("f(x) = ");
@@ -35,7 +42,7 @@ fn main() {
 
     println!("∫ f(X) dx = {}", polint.to_string());
 
-    // unit testing starts here
+    // relevant integral functions for a Polynomial instance
     println!("f(2) = {:.5}", pol2.eval(2.0 as f64));
     println!("actual integral      = {:.5}", (polint.eval(10.0) - polint.eval(1.0)));
     println!("simple simpson       = {:.5}", pol2.simple_simpson(1.0, 10.0));
